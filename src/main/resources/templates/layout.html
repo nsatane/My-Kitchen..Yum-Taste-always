@@ -28,19 +28,27 @@
     <!-- Custom site scripts  -->
     <script src="../public/js/blog-scripts.js" th:src="@{/js/blog-scripts.js}"></script>
 
-</head><body><header th:fragment="site-header">
-    <a href="index.html" th:href="@{/}"><img src="../public/img/site-logo.png" th:src="@{/img/site-logo.png}" /></a>
-    <a href="index.html" th:href="@{/}">Home</a>
-    <a href="users/login.html" th:href="@{/users/login}">Login</a>
-    <a href="users/register.html" th:href="@{/users/register}">Register</a>
-    <a href="posts/posts.html" th:href="@{/posts}">Posts</a>
-    <a href="posts/products.html" th:href="@{/products}">Our Products</a>
-    <a href="shoppingcart.html" th:href="@{/shoppingcart}">Shopping Cart</a>
+</head><body>
+<header th:fragment="site-header">
+    <div id="navbar" style="background-color: #f2f2f2; padding: 14px;  display: block; overflow: hidden;
+    margin-left:10px; word-spacing: 10px; color: red; text-size:10;">
+
+
+        <a href="index.html" th:href="@{/}">
+        <img src="../public/img/order-food-icon-9.ico" th:src="@{/img/order-food-icon-9.ico}"
+    style="width: 40px; height: 40px"/></a>
+    <a href="index.html" th:href="@{/}">Home</a>  |
+    <a href="users/login.html" th:href="@{/users/login}">Login</a>  |
+    <a href="users/register.html" th:href="@{/users/register}">Register</a>  |
+    <a href="posts/posts.html" th:href="@{/posts}">Posts</a>  |
+    <a href="posts/products.html" th:href="@{/products}">OurProducts</a>  |
+    <a href="shoppingcart.html" th:href="@{/shoppingcart}">Shopping Cart</a>  |
+    <a href ="contactus.html" th:href="@{/contactus}">Contact Us</a>
     <div id="logged-in-info"> <span>Hello, <b>(user)</b></span>
         <form method="post" th:action="@{/users/logout}">
             <input type="submit" value="Logout"/>
         </form>
-    </div>
+    </div></div>
 </header> <h1>Welcome</h1>
 <p>elcome to My Food Passion</p>
 <footer th:fragment="site-footer">

@@ -3,24 +3,26 @@
 
 <head th:replace="layout :: site-head">
     <title>Welcome to Spring MVC Blog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <header th:replace="layout :: site-header" />
 <h1>Welcome to My Food Passion</h1>
-<div id ="fancybox-content" style="border-width: 10px; width: 823px; height: 549px; opacity: 1;" >
-<a> <img src="https://blog.coxandkings.com/wp-content/uploads/2018/11/indian-cuisine-2-min.jpg" alt="Indian Cuisine"
-         height="200" width="420"></a>
-<p>      Indian food is not just the most the delicious and exotic food but also the healthiest.
-    It is probably the only kind that offers such a diverse range when it comes to vegetarian dishes.
-    The ingredients used to make Indian meals are a variety of vegetables and pulses, the latter are rich in
-    various vitamins and minerals such iron, potassium, magnesium and zinc while the former are a good source of
-    vitamin A and C. Also every Indian dish contains a good amount of spices, herbs and condiments like for
-    eg: mustard seed contains magnesium that is useful to reduce migraine pain and then there is cinnamon that can r
-    educe cholesterol. All these not only add to the taste of every dish but also makes it a tasty healthy mix.
+<div id ="fancybox-content"  >
+    <a> <img src="https://blog.coxandkings.com/wp-content/uploads/2018/11/indian-cuisine-2-min.jpg"
+            style=" height:300px; width= 1620px; " /></a>
+    <p>      Indian food is not just the most the delicious and exotic food but also the healthiest.
+        It is probably the only kind that offers such a diverse range when it comes to vegetarian dishes.
+        The ingredients used to make Indian meals are a variety of vegetables and pulses, the latter are rich in
+        various vitamins and minerals such iron, potassium, magnesium and zinc while the former are a good source of
+        vitamin A and C. Also every Indian dish contains a good amount of spices, herbs and condiments like for
+        eg: mustard seed contains magnesium that is useful to reduce migraine pain and then there is cinnamon that can r
+        educe cholesterol. All these not only add to the taste of every dish but also makes it a tasty healthy mix.
         Hence I have decided to write very healthy and Yummy recipes from my kitchen, so that I can answer to "Which
-    Sabji should I make today. I will be also answering to your food related question on my website. Readers can buy some
-    of our products which are authentic and daily essential in Kitchen.
-</p></div>
+        Sabji should I make today. I will be also answering to your food related question on my website. Readers can buy some
+        of our products which are authentic and daily essential in Kitchen.
+    </p></div>
 
 
 Now is: <b th:text="${execInfo.now.time}">date and time</b>
