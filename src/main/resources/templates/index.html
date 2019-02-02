@@ -2,13 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="layout :: site-head">
-    <title>Welcome to Spring MVC Blog</title>
+    <title>Welcome to My Kitchen</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <header th:replace="layout :: site-header" />
 <h1>Welcome to My Food Passion</h1>
+
+
+<aside style="float: right;width: 600px; background: #CCC;padding: 15px;margin-left: 20px;margin-top: 10px;">
+    <h2  style="margin: 5px 0px 15px 0px">Recent Posts </h2>
+    <a href="#" th:each="p : ${latest5posts}" th:text="${p.title}" th:href="@{/posts/view/{id}/(id=${p.id})}"
+       style="display: block;margin: 5px 0px;text-decoration: none;">Work Begins on HTML5.1</a>
+</aside>
+
+<main id="posts" style="content: '';display: block;clear: both;">
+    <article th:each="p : ${latest3Posts}" style ="float: right;width: 200px; background: #CCC;padding: 15px;
+    margin-left: 20px;margin-top: 10px; display: block;margin: 5px 0px;text-decoration: none">
+        <h2  style="margin: 5px 0px 15px 0px" class="title" th:text="${p.title}">Post Title</h2>
+        <div class="date">
+            <i>Posted on</i>
+            <span th:text="${#dates.format(p.date, 'dd-MMM-yyyy')}">22-May-2016</span>
+            <span th:if="${p.author}" th:remove="tag">
+	          <i>by</i>
+	          <span th:text="${p.author.fullName != null ? p.author.fullName : p.author.username}">Neha Bhalke</span>
+	        </span>
+        </div>
+        <p class="content" th:utext="${p.body}">Post content</p>
+    </article>
+</main>
 <div id ="fancybox-content"  >
     <a> <img src="https://blog.coxandkings.com/wp-content/uploads/2018/11/indian-cuisine-2-min.jpg"
             style=" height:300px; width= 1620px; " /></a>
@@ -23,6 +46,7 @@
         Sabji should I make today. I will be also answering to your food related question on my website. Readers can buy some
         of our products which are authentic and daily essential in Kitchen.
     </p></div>
+
 
 
 Now is: <b th:text="${execInfo.now.time}">date and time</b>
