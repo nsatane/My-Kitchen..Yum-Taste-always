@@ -69,4 +69,10 @@ public class PostServiceStubImpl implements PostService{
         throw new RuntimeException("Post not found: " + id);
 
     }
+
+   /** @Override
+    public Page<Post> findAll(Pageable pageable) {
+        // TODO Auto-generated method stub
+        return null;
+    }**/
 }
