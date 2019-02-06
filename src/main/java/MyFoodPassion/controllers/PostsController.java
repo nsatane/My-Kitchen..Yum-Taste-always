@@ -1,14 +1,13 @@
 package MyFoodPassion.controllers;
 
 import MyFoodPassion.models.Post;
-import MyFoodPassion.models.User;
-import MyFoodPassion.services.NotificationService;
+//import MyFoodPassion.models.User;
+
 import MyFoodPassion.services.PostService;
 
 import MyFoodPassion.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,24 +25,24 @@ public class PostsController {
     @Autowired
     private PostService postService;
 
-    @Autowired
-    private NotificationService notifyService;
-    @Autowired
-    private UserService userService;
+  //  @Autowired
+  //  private NotificationService notifyService;
+   // @Autowired
+   // private UserService userService;
 
     @RequestMapping("/posts/view/{id}")
     public String view(@PathVariable("id") Long id, Model model) {
         Post post = this.postService.findById(id);
-        if( post == null ){
+       /** if( post == null ){
             notifyService.addErrorMessage("Cannot find post #" + id);
             return "redirect:/";
-        }
+        }**/
         model.addAttribute("post", post);
         // To have something like src/main/resources/templates/<CONTROLLER-NAME>/<Mapping-Name-view>
         return "posts/view";
-    }
+    }}
 
-    @RequestMapping("/posts/create")
+   /** @RequestMapping("/posts/create")
     public ModelAndView create(){
         ModelAndView modelAndView = new ModelAndView();
         Post post = new Post();
@@ -135,4 +134,4 @@ public class PostsController {
         // Return the view model itself
         return "posts/index";
     }**/
-}
+

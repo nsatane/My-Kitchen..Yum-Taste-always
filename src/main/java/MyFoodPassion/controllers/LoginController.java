@@ -2,11 +2,10 @@ package MyFoodPassion.controllers;
 
 import MyFoodPassion.forms.LoginForm;
 import MyFoodPassion.models.User;
+
 import MyFoodPassion.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,34 +14,56 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
-@Controller
+/**@Controller
 public class LoginController {
     @Autowired
     private UserService userService;
 
-    /**
-     * Shows login form
-     * @param loginForm
-     * @return
-     */
+    @Autowired
+    private NotificationService notifyservice;
 
     @RequestMapping("/users/login")
-    public String login(LoginForm loginForm){
-        // User doesn't need to re-enter credentials
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if ( (auth instanceof AnonymousAuthenticationToken) ) {
+    public String login(LoginForm loginForm) {
+        return "users/login";
+    }
+
+    @RequestMapping(value = "/users/login", method = RequestMethod.POST)
+    public String loginPage(@Valid LoginForm loginForm, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            notifyservice.addErrorMessage("Please fill the form correctly!");
             return "users/login";
-        } else {
-            return "redirect:/";
+        }
+        if (!userService.authenticate(
+                LoginForm.getUserName(),  LoginForm.getPassword())) {
+            notifyservice.addErrorMessage("Invalid login!");
+            return "users/login";
         }
 
+        notifyservice.addInfoMessage("Login successful");
+        return "redirect:/";
     }
+
+}
+
+
+
+/**@RequestMapping("/users/login")
+public String login(LoginForm loginForm){
+    // User doesn't need to re-enter credentials
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    if ( (auth instanceof AnonymousAuthenticationToken) ) {
+        return "users/login";
+    } else {
+        return "redirect:/";
+    }
+
+}**/
 
     /**
      * Display user's registration form
      * @return
      */
-    @RequestMapping("/users/register")
+  /**  @RequestMapping("/users/register")
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
         User user = new User();
@@ -63,8 +84,5 @@ public class LoginController {
             modelAndView.addObject("successMessage", "User has been created");
             modelAndView.addObject("user", new User());
         }
-        return modelAndView;
+        return modelAndView;}**/
 
-    }
-
-}

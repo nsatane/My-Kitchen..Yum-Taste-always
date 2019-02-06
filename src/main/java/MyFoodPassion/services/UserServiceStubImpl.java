@@ -7,56 +7,26 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
 
-@Service
+/**@Service
 public class UserServiceStubImpl implements UserService {
-
     @Override
-    public boolean authenticate(String userName, String password) {
+    public boolean authenticate(String username, String password) {
         // Provide a sample password check: username == password
-        return Objects.equals(userName, password);
+        return Objects.equals(username, password);
+    }}
 
-    }
-
-    @Override
+   /** @Override
     public List<User> findAll() {
-        // TODO Auto-generated method stub
         return null;
-
-    }
-
-    @Override
-    public User findById(Long id) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public User create(User user) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public User edit(User user) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        // TODO Auto-generated method stub
-
     }
 
     @Override
     public User findByUserName(String userName) {
-        // TODO Auto-generated method stub
         return null;
     }
 
-   // @Override
-   // public Page<User> findAll(Pageable pageable) {
-        // TODO Auto-generated method stub
-       // return null;
-    //}
-}
+    @Override
+    public User findById(Long id) {
+        return null;
+    }
+}**/

@@ -9,8 +9,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class NotificationServiceImpl implements NotificationService {
+
+/**@Service
+    public class NotificationServiceImpl implements NotificationService {
 
     public static final String NOTIFY_MSG_SESSION_KEY = "siteNotificationMessages";
     // Define some enumerator
@@ -62,4 +63,4 @@ public class NotificationServiceImpl implements NotificationService {
         }
     }
 
-}
+}**/

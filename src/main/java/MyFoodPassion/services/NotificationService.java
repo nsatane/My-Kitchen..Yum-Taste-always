@@ -1,6 +1,6 @@
 package MyFoodPassion.services;
 
-public interface NotificationService {
+/**public interface NotificationService {
     void addInfoMessage(String message);
     void addErrorMessage(String message);
-}
+}**/

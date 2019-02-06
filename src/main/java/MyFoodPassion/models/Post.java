@@ -2,31 +2,29 @@ package MyFoodPassion.models;
 
 
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 
-@Entity
-@Table(name = "posts")
-public class Post {
+//@Entity
+//@Table(name = "posts")
+public class  Post {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //   @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 300)
+    //  @Column(nullable = false, length = 300)
     @NotEmpty(message = "Your Post must have title")
     private String title;
 
-    @Lob
-    @Column(nullable = false)
+    //  @Lob
+    //   @Column(nullable = false)
     private String body;
+    public User author;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private User author;
-
-    @Column(nullable = false)
+    // @Column(nullable = false)
     private Date date = new Date();
 
     public Long getId() {
@@ -53,12 +51,10 @@ public class Post {
         this.body = body;
     }
 
-    public User getAuthor() {
-        return author;
-    }
 
-    public void setAuthor(User author) {
-        this.author = author;
+    @Override
+    public String toString() {
+        return "Post{}";
     }
 
     public Date getDate() {
@@ -71,7 +67,20 @@ public class Post {
 
     public Post() {
     }
+    public Post(Long id, String title, String body, User author) {
+        this.id = id;
+        this.title = title;
+        this.body = body;
+        this.author = author;
+    }
+}
+   /** public void setAuthor(User author) {
+        this.author = author;
+    }
 
+    public User getAuthor() {
+        return author;
+    }
     public Post(Long id, String title, String body, User author) {
         this.id = id;
         this.title = title;
@@ -79,11 +88,9 @@ public class Post {
         this.author = author;
     }
 
-    @Override
-    public String toString() {
-        return "Post{}";
-    }
+    //  @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private User author;
 
+**/
 
-}
 
